@@ -236,7 +236,7 @@ a {
 
 /* Brand Scroller */
 .brand-scroller {
-  padding: 6rem 5vw;
+  padding: 2rem 5vw;
   background: var(--background);
   border-top: 1px solid var(--glass-border);
   overflow: hidden;
@@ -1229,7 +1229,7 @@ a {
 
 /* Testimonial Section (Artistic Focus Box) */
 .testimonial-section {
-  /* padding: 6rem 5vw; */
+  /* padding: 4rem 5vw; */
   background: var(--background);
   position: relative;
   overflow: hidden;
@@ -1328,6 +1328,42 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: 600;
+}
+
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 2rem;
+}
+
+.test-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.test-dot.active {
+  background: var(--accent);
+  transform: scale(1.4);
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: translateX(40px) rotate(3deg) scale(0.95);
+    filter: blur(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg) scale(1);
+    filter: blur(0);
+  }
 }
 
 /* Premium Slider Navigation System */

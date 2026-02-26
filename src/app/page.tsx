@@ -48,6 +48,28 @@ export default function Home() {
 
   const [currentSubIndex, setCurrentSubIndex] = useState(0);
   const [blogSliderIndex, setBlogSliderIndex] = useState(0);
+  const [testIndex, setTestIndex] = useState(0);
+
+  const testimonials = [
+    {
+      text: "Arts to Hearts Project is more than a gallery; it's a sanctuary for souls who breathe creativity. The community has empowered me to see my art through a lens of global connection and profound impact.",
+      name: "Elena Vance",
+      title: "Contemporary Painter | London",
+      img: "https://i.pravatar.cc/150?u=artist1"
+    },
+    {
+      text: "Being part of this community has transformed my artistic practice. The support and visibility provided by Arts to Hearts are unparalleled in the modern art world.",
+      name: "Marcus Thorne",
+      title: "Mixed Media Artist | Berlin",
+      img: "https://i.pravatar.cc/150?u=artist2"
+    },
+    {
+      text: "A truly unique platform that celebrates diversity and innovation. It's not just about showcasing art; it's about building lasting connections with fellow creatives.",
+      name: "Sarah Jenkins",
+      title: "Sculptor | New York",
+      img: "https://i.pravatar.cc/150?u=artist3"
+    }
+  ];
 
   const submissionData = [
     {
@@ -107,8 +129,8 @@ export default function Home() {
       {/* 1. HERO SECTION */}
       <section className="hero-dive">
         <div className="reveal">
-          <p className="hero-subtitle">EX NIHILO'S</p>
-          <h1 className="hero-title">THE DIVE</h1>
+          <p className="hero-subtitle">ARTS TO HEARTS</p>
+          <h1 className="hero-title">LET'S DIVE</h1>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <div className="btn-bracket">
               <div className="bracket bracket-left"></div>
@@ -342,19 +364,41 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. TESTIMONIAL SECTION (Validation) */}
+      {/* 7. TESTIMONIAL SECTION (Validation Sliders) */}
       <section className="testimonial-section">
         <div className="testimonial-focus-box reveal">
           <div className="testimonial-quote-mark">“</div>
-          <p className="testimonial-text">
-            "Arts to Hearts Project is more than a gallery; it's a sanctuary for souls who breathe creativity. The community has empowered me to see my art through a lens of global connection and profound impact."
-          </p>
-          <div className="testimonial-author-wrap">
-            <img src="https://i.pravatar.cc/150?u=artist1" className="author-pfp-small" alt="Artist" />
-            <div className="author-meta-text">
-              <span className="author-name-small">Elena Vance</span>
-              <span className="author-title-small">Contemporary Painter | London</span>
-            </div>
+
+          <div className="testimonial-slider-track">
+            {testimonials.map((t, i) => (
+              <div
+                key={i}
+                className={`testimonial-slide ${testIndex === i ? 'active' : ''}`}
+                style={{
+                  display: testIndex === i ? 'block' : 'none',
+                  animation: testIndex === i ? 'fadeInScale 0.8s ease forwards' : 'none'
+                }}
+              >
+                <p className="testimonial-text">"{t.text}"</p>
+                <div className="testimonial-author-wrap">
+                  <img src={t.img} className="author-pfp-small" alt={t.name} />
+                  <div className="author-meta-text">
+                    <span className="author-name-small">{t.name}</span>
+                    <span className="author-title-small">{t.title}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="testimonial-dots">
+            {testimonials.map((_, i) => (
+              <div
+                key={i}
+                className={`test-dot ${testIndex === i ? 'active' : ''}`}
+                onClick={() => setTestIndex(i)}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -377,7 +421,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer style={{ padding: '8rem 5vw', background: 'var(--background)', borderTop: '1px solid var(--glass-border)', textAlign: 'center' }}>
+      <footer style={{ padding: '2rem 5vw', background: 'var(--background)', borderTop: '1px solid var(--glass-border)', textAlign: 'center' }}>
         <div className="serif" style={{ fontSize: '2.5rem', marginBottom: '3rem', fontWeight: 900 }}>ARTS TO HEARTS</div>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', fontSize: '0.75rem', letterSpacing: '0.2rem', textTransform: 'uppercase', opacity: 0.6 }}>
           <a href="#">Shop</a>

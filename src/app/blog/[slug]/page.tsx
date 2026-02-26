@@ -76,7 +76,7 @@ export default function BlogDetail({ params }: { params: { slug: string } }) {
                 </aside>
             </section>
 
-            <footer style={{ padding: '5rem 8vw', borderTop: '1px solid var(--glass-border)', textAlign: 'center', opacity: 0.3, fontSize: '0.7rem' }}>
+            <footer style={{ padding: '2rem 8vw', borderTop: '1px solid var(--glass-border)', textAlign: 'center', opacity: 0.3, fontSize: '0.7rem' }}>
                 © 2026 ARTS TO HEARTS PROJECT.
             </footer>
         </main>
