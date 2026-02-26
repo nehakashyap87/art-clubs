@@ -141,6 +141,8 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="artistic-ray" />
+
       {/* 2. FEATURED ARTWORKS (Art Stars of 2025 - Community Spotlight) */}
       <section className="art-stars-section">
         <div className="container" style={{ textAlign: 'center', marginBottom: '2rem' }}>
@@ -180,6 +182,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <div className="artistic-ray" />
 
       {/* 3. SUBMISSIONS SECTION (Opportunities) */}
       <section className="submissions-section">
@@ -243,6 +247,8 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="artistic-ray" />
+
       {/* 4. OUR GALLERY (Artistic Showcase) */}
       <section className="alicante-gallery-section" style={{ backgroundColor: '#fff', color: '#000', padding: '4rem 0' }}>
         <div className="container" style={{ textAlign: 'center', paddingBottom: '0' }}>
@@ -281,6 +287,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <div className="artistic-ray" />
 
       {/* 5. NEW RELEASES SECTION (Commerce) */}
       <section className="gallery-wall">
@@ -323,6 +331,8 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="artistic-ray" />
+
       {/* 6. BLOG SECTION (Editorial depth) */}
       <section className="blog-unique-section" style={{ maxWidth: '1600px' }}>
         <div className="blog-sidebar reveal">
@@ -364,6 +374,8 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="artistic-ray" />
+
       {/* 7. TESTIMONIAL SECTION (Validation Sliders) */}
       <section className="testimonial-section">
         <div className="testimonial-focus-box reveal">
@@ -403,7 +415,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8. BRAND SCROLLER (Authority) */}
+      <div className="artistic-ray" />
+
+      {/* 8. BRAND SCROLLER */}
       <section className="brand-scroller">
         <div className="brand-track">
           {["HOMEGROWN", "CREATE!", "THE ARTIST ADVISORY", "VAC", "THE JEALOUS CURATOR", "ART GIRL RISING"].map((brand, i) => (
@@ -421,7 +435,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer style={{ padding: '2rem 5vw', background: 'var(--background)', borderTop: '1px solid var(--glass-border)', textAlign: 'center' }}>
+      <footer style={{ padding: '2rem 5vw', background: 'var(--background)', borderTop: '2px solid #e3b04b', textAlign: 'center' }}>
         <div className="serif" style={{ fontSize: '2.5rem', marginBottom: '3rem', fontWeight: 900 }}>ARTS TO HEARTS</div>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', fontSize: '0.75rem', letterSpacing: '0.2rem', textTransform: 'uppercase', opacity: 0.6 }}>
           <a href="#">Shop</a>

@@ -238,7 +238,6 @@ a {
 .brand-scroller {
   padding: 2rem 5vw;
   background: var(--background);
-  border-top: 1px solid var(--glass-border);
   overflow: hidden;
   position: relative;
 }
@@ -331,7 +330,6 @@ a {
 .gallery-wall {
   padding: 6rem 5vw;
   background: #0d0d0d url('https://www.transparenttextures.com/patterns/dark-wood.png');
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1233,7 +1231,6 @@ a {
   background: var(--background);
   position: relative;
   overflow: hidden;
-  border-top: 1px solid var(--glass-border);
   display: flex;
   justify-content: center;
 }
@@ -1432,4 +1429,17 @@ a {
 [data-theme='light'] .slide-btn:hover {
   background: black;
   color: white;
+}
+/* Artistic Golden Ray (Subtle Section Divider) */
+.artistic-ray {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 10%, #e3b04b 50%, transparent 90%);
+  opacity: 0.25;
+  margin: 0 auto;
+}
+
+[data-theme='light'] .artistic-ray {
+  opacity: 0.15;
+  background: linear-gradient(90deg, transparent 10%, #d4af37 50%, transparent 90%);
 }
