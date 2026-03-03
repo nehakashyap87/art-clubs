@@ -326,14 +326,35 @@ a {
   }
 }
 
-/* Gallery Wall Release Section - Refined Split Layout */
+/* Gallery Wall Release Section */
 .gallery-wall {
-  padding: 6rem 5vw;
+  padding: 5rem 5vw 6rem;
   background: #0d0d0d url('https://www.transparenttextures.com/patterns/dark-wood.png');
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* Header row: title left, arrows bottom-right aligned */
+.releases-header {
+  display: flex;
+  align-items: flex-end;
   justify-content: space-between;
-  gap: 6vw;
+  gap: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 2.5rem;
+}
+
+.releases-header-left {
+  flex: 1;
+  max-width: 600px;
+}
+
+.releases-header-right {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding-bottom: 0.25rem;
 }
 
 .wall-content {
@@ -343,30 +364,29 @@ a {
 
 .wall-heading {
   font-size: 0.65rem;
-  /* Reduced size */
   color: var(--muted);
   letter-spacing: 0.3em;
   text-transform: uppercase;
   font-weight: 700;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   display: block;
 }
 
 .wall-title {
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   text-transform: uppercase;
   font-weight: 900;
   line-height: 0.9;
   letter-spacing: -0.02em;
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
 }
 
 .wall-description {
   color: var(--muted);
   font-size: 0.9rem;
   line-height: 1.6;
-  margin-bottom: 3rem;
-  max-width: 300px;
+  margin-bottom: 2rem;
+  max-width: 480px;
 }
 
 .btn-large-shop {
@@ -388,47 +408,45 @@ a {
   transform: scale(1.05);
 }
 
+.gallery-grid-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
 .gallery-grid {
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
+  display: flex;
+  gap: 2rem;
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  transform: translateX(var(--release-offset, 0%));
 }
 
 @media (max-width: 1200px) {
-  .gallery-wall {
+  .releases-header {
     flex-direction: column;
-    text-align: center;
+    align-items: flex-start;
+    gap: 2rem;
   }
 
-  .wall-content {
-    flex: none;
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .wall-description {
-    max-width: none;
-  }
-
-  .gallery-grid {
-    width: 100%;
-    margin-top: 5rem;
+  .releases-header-right {
+    align-self: flex-start;
   }
 }
 
 @media (max-width: 768px) {
-  .gallery-grid {
-    grid-template-columns: 1fr;
+  .art-frame {
+    flex: 0 0 80vw;
   }
 
   .wall-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 }
 
 .art-frame {
+  flex: 0 0 calc(33.333% - 1.35rem);
+  /* Fits 3 items with gaps */
+  flex-shrink: 0;
   background: white;
   padding: 1.5rem 1.5rem 4rem 1.5rem;
   box-shadow:
@@ -983,6 +1001,7 @@ a {
   display: flex;
   gap: 4rem;
   transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  transform: translateX(var(--blog-offset, 0px));
 }
 
 .blog-card-unique {
@@ -1430,6 +1449,7 @@ a {
   background: black;
   color: white;
 }
+
 /* Artistic Golden Ray (Subtle Section Divider) */
 .artistic-ray {
   width: 100%;
@@ -1442,4 +1462,652 @@ a {
 [data-theme='light'] .artistic-ray {
   opacity: 0.15;
   background: linear-gradient(90deg, transparent 10%, #d4af37 50%, transparent 90%);
+}
+
+/* Podcast Section Styles */
+.podcast-section {
+  padding: 6rem 5vw;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.podcast-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6vw;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.podcast-mockup-col {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  animation-delay: 0.2s;
+}
+
+.phone-wrapper {
+  position: relative;
+  width: 320px;
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.3));
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.phone-wrapper:hover {
+  transform: translateY(-15px) rotate(-2deg);
+}
+
+.podcast-player-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.player-meta {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  opacity: 0.6;
+}
+
+.player-main-info h4 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.player-main-info h2 {
+  font-size: 2.5rem;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  font-family: var(--font-serif);
+}
+
+.audio-controls-box {
+  background: var(--glass-border);
+  padding: 2.5rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.progress-fill {
+  width: 35%;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.time-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  opacity: 0.5;
+  margin-bottom: 2rem;
+}
+
+.playback-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.control-btn {
+  background: none;
+  border: none;
+  color: var(--foreground);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.control-btn:hover {
+  transform: scale(1.1);
+  color: var(--accent);
+}
+
+.episode-list-scroll {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-top: 2rem;
+  padding-right: 1.5rem;
+}
+
+.episode-list-scroll::-webkit-scrollbar {
+  width: 3px;
+}
+
+.episode-list-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.episode-list-scroll::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 10px;
+}
+
+.episode-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--glass-border);
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.episode-item:hover {
+  opacity: 1;
+}
+
+.episode-item:not(:hover) {
+  opacity: 0.6;
+}
+
+.episode-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.episode-info-text h5 {
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+}
+
+.episode-info-text span {
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+.podcast-desc-footer {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 5vw;
+  margin-top: 6rem;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.desc-left {
+  font-size: 1.8rem;
+  line-height: 1.3;
+  font-family: var(--font-serif);
+  font-weight: 700;
+}
+
+.desc-right {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+[data-theme='light'] .audio-controls-box {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+@media (max-width: 992px) {
+
+  .podcast-grid,
+  .podcast-desc-footer {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+/* Cleaned UI Tokens & Utility Classes */
+.logo-text {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-family: var(--font-serif);
+}
+
+.logo-accent {
+  color: var(--accent);
+}
+
+.nav-btn-submit {
+  border-radius: 0;
+}
+
+.nav-right-actions {
+  display: flex;
+  gap: 1.5rem;
+  alignItems: center;
+}
+
+.search-icon-btn {
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.centered-max-container {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.section-header-compact {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-title-large {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.section-tagline-muted {
+  color: var(--muted);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-left: 1rem;
+  opacity: 0.8;
+}
+
+.filter-wrap-top {
+  margin-top: 1.5rem;
+}
+
+.artwork-card-wrapper {
+  border: none;
+  background: transparent;
+}
+
+.ornate-inner-padding {
+  padding: 15px;
+}
+
+.artist-tag-mini {
+  font-size: 0.5rem;
+  padding: 4px 10px;
+}
+
+.artist-profile-border {
+  border: 1px solid var(--glass-border);
+  margin-top: 10px;
+}
+
+.alicante-white-theme {
+  background-color: #fff !important;
+  color: #000 !important;
+  padding: 4rem 0;
+}
+
+.alicante-filters {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.alicante-filter-active {
+  border-bottom: 2px solid #e3b04b;
+  padding-bottom: 5px;
+}
+
+.price-sale-tag {
+  color: #ff0000;
+}
+
+.price-old-strike {
+  font-size: 0.7rem;
+  text-decoration: line-through;
+  color: #999;
+  font-weight: 500;
+}
+
+.price-new-bold {
+  font-size: 0.9rem;
+  color: #ff4d4d;
+  font-weight: 800;
+}
+
+.price-container {
+  margin-top: 0.8rem;
+  display: flex;
+  gap: 10px;
+  alignItems: center;
+}
+
+.bracket-btn-dark {
+  margin-top: 1.5rem;
+  color: #000;
+}
+
+.bracket-btn-dark .bracket {
+  border-color: #000 !important;
+}
+
+/* Podcast Inline Style Cleanup */
+.podcast-phone-img {
+  width: 100%;
+  border-radius: 40px;
+  border: 8px solid #1a1a1a;
+}
+
+.podcast-earbuds-decor {
+  position: absolute;
+  bottom: -40px;
+  left: -20px;
+  width: 100px;
+  transform: rotate(-15deg);
+}
+
+.podcast-earbuds-img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.podcast-title-group {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.podcast-main-heading {
+  fontSize: 2.8rem;
+  line-height: 1.1;
+  margin: 1.5rem 0;
+}
+
+.playback-play-pause {
+  background: var(--foreground);
+  color: var(--background);
+  width: 60px;
+  height: 60px;
+  borderRadius: 50%;
+  display: flex;
+  alignItems: center;
+  justifyContent: center;
+  cursor: pointer;
+}
+
+.episode-list-title {
+  font-weight: 700;
+}
+
+.episode-list-meta {
+  font-size: 0.7rem;
+}
+
+/* Blog Sidebar Cleanup */
+.blog-sidebar-title {
+  margin-bottom: 2rem;
+}
+
+.blog-nav-margin {
+  margin-top: 4rem;
+}
+
+/* Brand Scroller Cleanup */
+.brand-text-serif {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.brand-text-sans {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+/* Footer Cleanup */
+.main-footer {
+  padding: 2rem 5vw;
+  background: var(--background);
+  border-top: 2px solid #e3b04b;
+  text-align: center;
+}
+
+.footer-brand {
+  font-size: 2.5rem;
+  marginBottom: 3.5rem;
+  font-weight: 900;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.footer-copyright {
+  margin-top: 5rem;
+  fontSize: 0.65rem;
+  opacity: 0.3;
+}
+
+
+.full-width-auto {
+  width: 100%;
+  height: auto;
+}
+
+.flex-center-gap {
+  display: flex;
+  gap: 10px;
+  alignItems: center;
+}
+
+.text-strike-muted {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.bracket-btn-foreground {
+  color: var(--foreground);
+}
+
+.bracket-border-foreground {
+  border-color: var(--foreground) !important;
+}
+
+
+/* Blog Detail Page Structural Classes */
+.page-top-offset {
+  padding-top: 80px;
+}
+
+.blog-hero-detail {
+  height: 70vh;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+.blog-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+}
+
+.blog-hero-content {
+  position: absolute;
+  bottom: 10%;
+  left: 8vw;
+  max-width: 900px;
+}
+
+.blog-tag-badge {
+  background: var(--accent);
+  color: white;
+  border: none;
+}
+
+.blog-main-title {
+  font-size: clamp(3rem, 7vw, 5rem);
+  line-height: 1.1;
+  margin-top: 1.5rem;
+  color: white;
+}
+
+.blog-meta-group {
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+  opacity: 0.8;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.blog-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 6vw;
+}
+
+.blog-excerpt-quote {
+  font-size: 1.8rem;
+  margin-bottom: 3rem;
+  font-style: italic;
+  opacity: 0.8;
+  line-height: 1.4;
+  font-family: var(--font-serif);
+}
+
+.blog-body-text {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+.blog-sidebar-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.blog-detail-label {
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 0.5rem;
+}
+
+.blog-detail-meta-text {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.blog-fixed-footer {
+  padding: 2rem 8vw;
+  border-top: 1px solid var(--glass-border);
+  text-align: center;
+  opacity: 0.3;
+  font-size: 0.7rem;
+}
+
+
+/* Global Utility Overrides */
+.no-decor {
+  text-decoration: none !important;
+}
+
+.color-inherit {
+  color: inherit !important;
+}
+
+/* ─────────────────────────────────────────────
+   Copy & Design Protection
+   Prevents right-click save, text selection,
+   and image dragging at the CSS level.
+───────────────────────────────────────────── */
+
+/* Disable text selection across the entire site */
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Images: block pointer events so they can't be
+   right-clicked / dragged directly */
+img {
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-touch-callout: none;
+  /* iOS long-press menu */
+}
+
+/* Transparent overlay on every image container
+   that blocks the native image context menu */
+.artwork-img-box,
+.gallery-tile,
+.sub-image-stage,
+.card-img-container,
+.phone-wrapper,
+.podcast-mockup-col {
+  position: relative;
+}
+
+.artwork-img-box::after,
+.gallery-tile::after,
+.sub-image-stage::after,
+.card-img-container::after,
+.phone-wrapper::after,
+.podcast-mockup-col::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: transparent;
+  cursor: default;
+}
+
+/* Watermark overlay on gallery images */
+.gallery-tile::before {
+  content: "© Arts to Hearts";
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 20;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  pointer-events: none;
 }
